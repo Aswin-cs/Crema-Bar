@@ -45,8 +45,31 @@ export default function Inside() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="aspect-square bg-bgLight flex items-center justify-center w-full max-w-md mx-auto md:ml-auto border border-borderLight relative overflow-hidden">
-              <img src="/images/custard9.jpeg" alt="Custard Cup Photo" className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply" />
+            <div className="relative w-full max-w-md aspect-square mx-auto md:ml-auto">
+              {/* Border Wrapper */}
+              <div className="relative w-full h-full rounded-2xl overflow-hidden p-[2.5px] bg-borderLight/50 z-10 shadow-lg">
+                {/* Moving border flow */}
+                <div className="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] pointer-events-none">
+                  <motion.div
+                    className="w-full h-full"
+                    style={{
+                      background: "conic-gradient(from 0deg, transparent 30%, #7b34a2 50%, transparent 70%, transparent 90%, #d4b3f0 100%)",
+                      transformOrigin: "center center"
+                    }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 4, ease: "linear", repeat: Infinity }}
+                  />
+                </div>
+
+                {/* Inner content container */}
+                <div className="relative w-full h-full bg-bgLight rounded-[14px] overflow-hidden flex items-center justify-center">
+                  <img 
+                    src="/images/custard9.jpeg" 
+                    alt="Custard Cup Photo" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply transition-transform duration-700 hover:scale-105" 
+                  />
+                </div>
+              </div>
             </div>
           </motion.div>
 

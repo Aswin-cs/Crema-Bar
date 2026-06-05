@@ -20,3 +20,65 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5eeff; /* bgLight */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7b34a2; /* primary */
+  border-radius: 8px;
+  border: 2px solid #f5eeff; /* adds a nice padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #622387; /* slightly darker purple for hover */
+}
+
+/* Firefox Scrollbar Support */
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #7b34a2 #f5eeff;
+  }
+}
+
+/* Custom Selection Highlight Style */
+::selection {
+  background-color: #7b34a2; /* primary */
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #7b34a2; /* primary */
+  color: #ffffff;
+}
+
+/* Border-Flow Rotation Animation */
+@keyframes border-flow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-border-flow {
+  animation: border-flow 4s linear infinite;
+}
+
+/* Custom Cursor - Hide default cursor on non-touch devices */
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}

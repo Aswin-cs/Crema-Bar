@@ -1,5 +1,6 @@
 import { Raleway } from 'next/font/google';
 import "./globals.css";
+import CustomCursor from '../components/CustomCursor';
 
 const raleway = Raleway({ 
   subsets: ['latin'], 
@@ -10,15 +11,15 @@ const raleway = Raleway({
 export const metadata = {
   title: "Zaithoon's Custard - Premium Custard in Thrissur",
   description: "Pure milk custard, fresh fruits, premium nuts.",
-  icons: {
-    icon: '/images/logo image.jpeg',
-  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} font-raleway`}>{children}</body>
+      <body className={`${raleway.variable} font-raleway`}>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Location() {
   return (
@@ -26,7 +27,12 @@ export default function Location() {
               
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <span className="text-primary">📞</span>
-                <p>+91 98765 43210</p>
+                <a 
+                  href="tel:+919876543210" 
+                  className="font-sans font-[700] tracking-wider hover:text-primary transition-colors hover:underline"
+                >
+                  +91 98765 43210
+                </a>
               </div>
               
               <div className="flex items-center justify-center md:justify-start gap-3">
@@ -39,8 +45,9 @@ export default function Location() {
               href="https://wa.me/919876543210" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-[700] hover:bg-opacity-90 transition-colors w-max"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-[700] hover:bg-[#25D366] transition-colors w-max"
             >
+              <FaWhatsapp className="w-5 h-5" />
               Chat on WhatsApp
             </a>
           </motion.div>

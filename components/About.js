@@ -15,8 +15,14 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="aspect-square bg-bgLight rounded-3xl flex items-center justify-center w-full max-w-md mx-auto md:mx-0 border border-borderLight relative overflow-hidden">
-              <img src="/images/child-care-pic.jpeg" alt="Shop Photo" className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" />
+            <div className="aspect-square w-full max-w-md mx-auto md:mx-0 p-[3px] rounded-3xl relative overflow-hidden bg-borderLight/30 flex items-center justify-center">
+              {/* Rotating conic-gradient border track strictly using theme colors */}
+              <div className="absolute inset-[-1000%] animate-border-flow bg-[conic-gradient(from_0deg,#7b34a2_0%,#d4b3f0_25%,#ede0fa_50%,#d4b3f0_75%,#7b34a2_100%)]" />
+              
+              {/* Inner container displaying the blended child photo */}
+              <div className="relative w-full h-full bg-bgLight rounded-[21px] overflow-hidden flex items-center justify-center">
+                <img src="/images/child-care-pic.jpeg" alt="Shop Photo" className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" />
+              </div>
             </div>
           </motion.div>
 
@@ -34,7 +40,18 @@ export default function About() {
                 Zaithoon's Custard
               </h2>
               <svg className="absolute w-full h-4 md:h-5 -bottom-1 md:-bottom-2 left-0 text-[#ff6b6b] z-0" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0,5 Q5,0 10,5 T20,5 T30,5 T40,5 T50,5 T60,5 T70,5 T80,5 T90,5 T100,5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <motion.path 
+                  d="M0,5 Q5,0 10,5 T20,5 T30,5 T40,5 T50,5 T60,5 T70,5 T80,5 T90,5 T100,5" 
+                  stroke="currentColor" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  fill="none"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}
+                  viewport={{ once: true }}
+                />
               </svg>
             </div>
             <p className="font-[400] text-[#555555] text-lg leading-relaxed">

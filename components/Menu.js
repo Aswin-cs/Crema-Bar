@@ -27,14 +27,20 @@ export default function Menu() {
           <p className="font-[400] text-[#555555]">Freshly made with love, every single day</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="flex flex-col md:grid md:grid-cols-4 gap-6 relative">
           {menuItems.map((item, idx) => (
             <motion.div 
               key={idx}
-              className="bg-white rounded-[2rem] overflow-hidden transition-transform duration-300 hover:-translate-y-2 cursor-pointer flex flex-col h-full group"
+              className="bg-white rounded-[2rem] overflow-hidden cursor-pointer flex flex-col h-full group sticky md:static shadow-xl md:shadow-none border border-borderLight md:border-none"
+              style={{ top: `calc(100px + ${idx * 15}px)` }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ 
+                y: -12,
+                boxShadow: "0 25px 50px -12px rgba(123, 52, 162, 0.25), 0 8px 20px -8px rgba(123, 52, 162, 0.15)"
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className="w-full aspect-[4/3] relative overflow-hidden">
                 <img src={`/images/custard${idx + 1}.jpeg`} alt={item.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
