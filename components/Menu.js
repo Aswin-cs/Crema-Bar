@@ -24,7 +24,11 @@ export default function Menu() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <h2 className="font-[900] text-4xl md:text-5xl text-primary uppercase tracking-wider mb-3">OUR SPECIALS</h2>
-          <p className="font-[400] text-[#555555]">Freshly made with love, every single day</p>
+          <p className="font-[500] text-lg text-[#555555] max-w-xl mx-auto italic leading-relaxed">
+            "A delicious curation of our finest recipes, slow-churned daily
+            <br />
+            to bring a smile to your face and warmth to your heart."
+          </p>
         </motion.div>
 
         <div className="flex flex-col md:grid md:grid-cols-4 gap-6 relative">

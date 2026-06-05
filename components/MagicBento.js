@@ -508,89 +508,6 @@ const useMobileDetection = () => {
   return isMobile;
 };
 
-const SPRING_CONFIG = { stiffness: 60, damping: 20, mass: 0.8 };
-
-const MobileParallaxCard = ({ card, index }) => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 95%", "end 5%"]
-  });
-
-  // Raw scroll-linked values
-  const rawX = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.65, 1],
-    [-280, 0, 0, 320]
-  );
-  const rawOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.65, 0.9],
-    [0, 1, 1, 0]
-  );
-  const rawScale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.65, 1],
-    [0.92, 1, 1, 0.92]
-  );
-
-  // Spring-smooth every value for silky interpolation
-  const x       = useSpring(rawX,       SPRING_CONFIG);
-  const opacity = useSpring(rawOpacity, { stiffness: 80, damping: 22, mass: 0.6 });
-  const scale   = useSpring(rawScale,   SPRING_CONFIG);
-
-  return (
-    <div ref={containerRef} className="w-full h-[480px] relative flex justify-center items-start">
-      <motion.div
-        className="w-full h-[340px] rounded-[2rem] overflow-hidden flex flex-col justify-between p-6 border border-[#2F293A] sticky shadow-2xl select-none"
-        style={{
-          top: `calc(88px + ${index * 12}px)`,
-          backgroundColor: card.color || '#120F17',
-          x,
-          opacity,
-          scale,
-          willChange: 'transform, opacity',
-        }}
-      >
-        {card.src && (
-          <div className="absolute inset-0 z-0 overflow-hidden" style={{ borderRadius: 'inherit' }}>
-            {card.type === 'video' ? (
-              <video
-                src={card.src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover opacity-70"
-              />
-            ) : (
-              <img
-                src={card.src}
-                alt={card.title}
-                className="w-full h-full object-cover opacity-70"
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
-          </div>
-        )}
-        <div className="magic-bento-card__header relative z-10 flex justify-between items-start">
-          <div className="magic-bento-card__label font-[700] text-[11px] text-white/90 uppercase tracking-widest bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
-            {card.label}
-          </div>
-        </div>
-        <div className="magic-bento-card__content relative z-10 flex flex-col gap-1">
-          <h3 className="font-[800] text-white text-[22px] leading-tight">
-            {card.title}
-          </h3>
-          <p className="font-[400] text-white/70 text-[13px] leading-relaxed">
-            {card.description}
-          </p>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-
 const MagicBento = ({
   textAutoHide = true,
   enableStars = true,
@@ -607,16 +524,6 @@ const MagicBento = ({
   const gridRef = useRef(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
-
-  if (isMobile) {
-    return (
-      <div className="flex flex-col gap-12 w-full px-4 relative max-w-md mx-auto py-12">
-        {cardData.map((card, index) => (
-          <MobileParallaxCard key={index} card={card} index={index} />
-        ))}
-      </div>
-    );
-  }
 
   return (
     <>

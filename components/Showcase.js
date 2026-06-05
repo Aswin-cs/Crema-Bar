@@ -9,7 +9,7 @@ function HoverCard({ src }) {
     <motion.div
       whileHover={{ y: -12 }}
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      className={`w-[250px] md:w-[300px] flex-shrink-0 aspect-[4/5] relative flex items-end justify-center overflow-hidden cursor-grab active:cursor-grabbing select-none transition-shadow duration-300 ${
+      className={`w-[250px] md:w-[300px] flex-shrink-0 aspect-[4/5] relative flex items-end justify-center overflow-hidden cursor-grab active:cursor-grabbing select-none transition-shadow duration-300 transform-gpu will-change-transform ${
         isPng 
           ? 'filter drop-shadow-md hover:drop-shadow-2xl' 
           : 'rounded-2xl bg-bgLight shadow-md hover:shadow-2xl hover:shadow-primary/15'
@@ -23,7 +23,7 @@ function HoverCard({ src }) {
         }}
         whileHover={{ scale: isPng ? 0.95 : 1.05 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className={`w-full h-full pointer-events-none select-none ${
+        className={`w-full h-full pointer-events-none select-none transform-gpu ${
           isPng ? 'object-contain' : 'object-cover'
         }`}
       />
@@ -128,6 +128,11 @@ export default function Showcase() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <h2 className="font-[900] text-4xl md:text-5xl text-primary uppercase tracking-wider">Supreme Custards</h2>
+          <p className="font-[500] text-lg text-[#555555] max-w-xl mx-auto mt-4 italic leading-relaxed">
+            "A royal symphony of slow-cooked milk and premium toppings,
+            <br />
+            crafted to sweeten your special moments."
+          </p>
         </motion.div>
       </div>
 
@@ -148,7 +153,7 @@ export default function Showcase() {
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
           style={{ x }}
-          className="flex w-max gap-8 px-4"
+          className="flex w-max gap-8 px-4 will-change-transform touch-pan-y"
         >
           {marqueeImages.map((src, idx) => (
             <HoverCard key={idx} src={src} />

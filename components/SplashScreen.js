@@ -56,10 +56,7 @@ export default function SplashScreen() {
     // Race: wait for all assets OR max timeout
     const maxTimer = new Promise((resolve) => setTimeout(resolve, MAX_WAIT_MS));
 
-    Promise.race([
-      Promise.all([preloadAll, fontsReady]),
-      maxTimer,
-    ]).then(() => {
+    const proceed = () => {
       if (cancelled) return;
       // Ensure minimum splash time for smooth branding
       const elapsed = Date.now() - start;
@@ -67,31 +64,43 @@ export default function SplashScreen() {
       setTimeout(() => {
         if (!cancelled) setAssetsReady(true);
       }, remaining);
-    });
+    };
+
+    Promise.race([
+      Promise.all([preloadAll, fontsReady]),
+      maxTimer,
+    ])
+      .then(proceed)
+      .catch((err) => {
+        console.error("Asset preloading failed, clearing splash screen anyway:", err);
+        proceed();
+      });
 
     return () => {
       cancelled = true;
     };
   }, []);
 
-  // Phase transitions — only begin once assets are ready
+  // Phase 1: Slide out the white overlay screen immediately on mount to reveal the violet loading screen
+  useEffect(() => {
+    const t1 = setTimeout(() => setPhase(1), 100);
+    return () => clearTimeout(t1);
+  }, []);
+
+  // Phase 2: Slide out the violet screen to reveal the website once assets are ready
   useEffect(() => {
     if (!assetsReady) return;
 
-    // Phase 1: White screen slides out, revealing Violet screen with logo
-    const t1 = setTimeout(() => setPhase(1), 100);
-
-    // Phase 2: Violet screen slides out, revealing website
-    const t2 = setTimeout(() => setPhase(2), 1400);
+    // Violet screen slides out
+    const t2 = setTimeout(() => setPhase(2), 800);
 
     // Hide completely and restore scroll
     const t3 = setTimeout(() => {
       document.body.style.overflow = "auto";
       setVisible(false);
-    }, 2100);
+    }, 1500);
 
     return () => {
-      clearTimeout(t1);
       clearTimeout(t2);
       clearTimeout(t3);
       document.body.style.overflow = "auto";

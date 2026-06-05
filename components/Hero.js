@@ -1,6 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import ShinyText from "./ShinyText";
+
+// Array of 24 elements for a seamless looping marquee
+const images = Array.from({ length: 24 });
+
+
 
 // Floating orb component for reuse
 function FloatingOrb({ style, duration = 6, delay = 0, yRange = 20 }) {
@@ -93,7 +99,7 @@ export default function Hero() {
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 3, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
+          transition={{ duration: 4.5, delay: 0.5, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 3 }}
         />
         <motion.path
           d="M0 400 C400 100, 1040 700, 1440 400"
@@ -101,7 +107,7 @@ export default function Hero() {
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 3, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
+          transition={{ duration: 5, delay: 2, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 3 }}
         />
         <motion.path
           d="M0 600 C500 300, 940 900, 1440 600"
@@ -109,7 +115,7 @@ export default function Hero() {
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 3, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
+          transition={{ duration: 5.5, delay: 3.5, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 3 }}
         />
       </svg>
 
@@ -126,7 +132,7 @@ export default function Hero() {
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 3, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
+          transition={{ duration: 5, delay: 0.5, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
         />
         <motion.path
           d="M0 400 C150 300, 250 500, 400 450"
@@ -134,7 +140,7 @@ export default function Hero() {
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 3, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
+          transition={{ duration: 5.5, delay: 2.5, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
         />
         <motion.path
           d="M0 650 C100 550, 300 750, 400 700"
@@ -142,7 +148,7 @@ export default function Hero() {
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
-          transition={{ duration: 3, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
+          transition={{ duration: 6, delay: 4.5, times: [0, 0.8, 1], ease: "easeInOut", repeat: Infinity, repeatDelay: 4 }}
         />
       </svg>
 
@@ -182,7 +188,17 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            className="text-[#555555] font-[500] text-[18px] max-w-2xl mx-auto mb-10"
+            className="text-[#555555] font-[500] text-[20px] max-w-2xl mx-auto mb-5 italic leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            "Handcrafted with pure milk and served with a heart full of love,
+            <br />
+            making every sweet moment a memory to cherish forever."
+          </motion.p>
+
+          <motion.p
+            className="text-primary font-[600] tracking-wide text-xs mb-10 uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -198,6 +214,16 @@ export default function Hero() {
             Explore Now
           </motion.a>
         </motion.div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden translate-y-12 md:translate-y-24">
+        <div className="flex w-[200%] animate-scroll-left gap-6 pb-0">
+          {images.map((item, idx) => (
+            <div key={idx} className="w-[180px] h-[220px] md:w-[260px] md:h-[300px] bg-borderLight rounded-2xl flex-shrink-0 flex items-end justify-center pb-4 relative overflow-hidden group border border-borderLight/50">
+              <Image src={`/images/custard${(idx % 12) + 1}.jpeg`} alt="Custard" fill className="object-cover opacity-60 mix-blend-multiply" />
+              <div className="absolute inset-0 z-10 hover:bg-white/10 transition-colors duration-300"></div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

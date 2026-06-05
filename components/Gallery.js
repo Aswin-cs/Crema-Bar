@@ -14,7 +14,11 @@ export default function Gallery() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <h2 className="font-[900] text-4xl md:text-5xl text-primary uppercase tracking-wider mb-3">THE ZAITHOON'S DIFFERENCE</h2>
-          <p className="font-[400] text-[#555555]">What makes our custard so special</p>
+          <p className="font-[500] text-lg text-[#555555] max-w-xl mx-auto italic leading-relaxed">
+            "It's not just the premium nuts and fresh fruits,
+            <br />
+            but the passion and legacy whipped into every single batch."
+          </p>
         </motion.div>
 
         <div className="w-full relative flex justify-center">
