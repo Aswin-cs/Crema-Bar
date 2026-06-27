@@ -96,7 +96,7 @@ export default function ScrollToTop() {
         {/* Progress */}
         <motion.circle
           cx="24" cy="24" r={radius}
-          stroke="#7b34a2"
+          stroke="#244a81ff"
           strokeWidth="3.5"
           fill="transparent"
           strokeLinecap="round"
@@ -108,7 +108,7 @@ export default function ScrollToTop() {
       {/* Arrow */}
       <svg
         className="w-5 h-5 relative z-10 group-hover:-translate-y-0.5 transition-transform duration-200"
-        fill="none" stroke="#7b34a2" viewBox="0 0 24 24"
+        fill="none" stroke="#244a81ff" viewBox="0 0 24 24"
       >
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
       </svg>

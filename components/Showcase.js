@@ -2,7 +2,7 @@
 import { motion, useMotionValue, useScroll, useVelocity, useSpring, useAnimationFrame } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-function HoverCard({ src }) {
+function HoverCard({ src, alt }) {
   const isPng = src.endsWith('.png');
 
   return (
@@ -17,7 +17,7 @@ function HoverCard({ src }) {
     >
       <motion.img 
         src={src} 
-        alt="Supreme Custard" 
+        alt={alt} 
         style={{
           scale: isPng ? 0.9 : 1.0
         }}
@@ -33,12 +33,12 @@ function HoverCard({ src }) {
 
 export default function Showcase() {
   const images = [
-    "/images/custard1.jpeg",
-    "/images/custard.png",
-    "/images/custard2.jpeg",
-    "/images/custard3.jpeg",
-    "/images/custard4.jpeg",
-    "/images/custard5.jpeg",
+    { src: "/images/cream_white_chocolate_cake.jpeg", alt: "White Chocolate Cake" },
+    { src: "/images/sample_dish.jpeg", alt: "Sample Dish" },
+    { src: "/images/cream_tiramisu.jpeg", alt: "Layered Tiramisu" },
+    { src: "/images/cream_eclairs.jpeg", alt: "Cream-filled Eclairs" },
+    { src: "/images/cream_fettuccine.jpeg", alt: "Creamy Fettuccine" },
+    { src: "/images/cream_cheesecake.jpeg", alt: "Classic Cheesecake" },
   ];
   
   const marqueeImages = [...images, ...images];
@@ -155,8 +155,8 @@ export default function Showcase() {
           style={{ x }}
           className="flex w-max gap-8 px-4 will-change-transform touch-pan-y"
         >
-          {marqueeImages.map((src, idx) => (
-            <HoverCard key={idx} src={src} />
+          {marqueeImages.map((item, idx) => (
+            <HoverCard key={idx} src={item.src} alt={item.alt} />
           ))}
         </motion.div>
       </div>

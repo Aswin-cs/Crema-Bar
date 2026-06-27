@@ -3,6 +3,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import ShinyText from "./ShinyText";
 
+const heroImages = [
+  { file: "cream_white_chocolate_cake.jpeg", alt: "White Chocolate Cake" },
+  { file: "cream_tiramisu.jpeg", alt: "Layered Tiramisu" },
+  { file: "cream_eclairs.jpeg", alt: "Cream-filled Eclairs" },
+  { file: "cream_fettuccine.jpeg", alt: "Creamy Fettuccine" },
+  { file: "cream_cheesecake.jpeg", alt: "Classic Cheesecake" },
+  { file: "cream_pot_pie.jpeg", alt: "Cream Pot Pie" },
+  { file: "cream_panna_cotta.jpeg", alt: "Vanilla Panna Cotta" },
+  { file: "cream_carbonara.jpeg", alt: "Creamy Carbonara" }
+];
+
 // Array of 24 elements for a seamless looping marquee
 const images = Array.from({ length: 24 });
 
@@ -32,7 +43,7 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(-45deg, rgba(249,240,255,0.6), rgba(243,229,245,0.8), rgba(225,190,231,0.6), rgba(249,240,255,0.6))",
+          background: "linear-gradient(-45deg, rgba(27,68,129,0.05), rgba(27,68,129,0.15), rgba(27,68,129,0.1), rgba(27,68,129,0.05))",
           backgroundSize: "400% 400%"
         }}
         animate={{
@@ -53,7 +64,7 @@ export default function Hero() {
         style={{
           width: 500, height: 500,
           top: "-10%", left: "-10%",
-          background: "radial-gradient(circle, rgba(155,74,221,0.18) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(27,68,129,0.18) 0%, transparent 70%)",
           filter: "blur(40px)",
         }}
         duration={8} delay={0} yRange={25}
@@ -62,7 +73,7 @@ export default function Hero() {
         style={{
           width: 400, height: 400,
           bottom: "5%", right: "-8%",
-          background: "radial-gradient(circle, rgba(123,52,162,0.15) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(27,68,129,0.15) 0%, transparent 70%)",
           filter: "blur(50px)",
         }}
         duration={10} delay={2} yRange={18}
@@ -71,7 +82,7 @@ export default function Hero() {
         style={{
           width: 280, height: 280,
           top: "40%", left: "60%",
-          background: "radial-gradient(circle, rgba(200,150,255,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(27,68,129,0.12) 0%, transparent 70%)",
           filter: "blur(30px)",
         }}
         duration={7} delay={1} yRange={15}
@@ -80,7 +91,7 @@ export default function Hero() {
         style={{
           width: 200, height: 200,
           top: "20%", right: "15%",
-          background: "radial-gradient(circle, rgba(155,74,221,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(27,68,129,0.1) 0%, transparent 70%)",
           filter: "blur(25px)",
         }}
         duration={9} delay={3} yRange={12}
@@ -95,7 +106,7 @@ export default function Hero() {
       >
         <motion.path
           d="M0 200 C300 0, 1140 400, 1440 200"
-          stroke="#7b34a2"
+          stroke="#244a81ff"
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
@@ -103,7 +114,7 @@ export default function Hero() {
         />
         <motion.path
           d="M0 400 C400 100, 1040 700, 1440 400"
-          stroke="#7b34a2"
+          stroke="#244a81ff"
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
@@ -111,7 +122,7 @@ export default function Hero() {
         />
         <motion.path
           d="M0 600 C500 300, 940 900, 1440 600"
-          stroke="#7b34a2"
+          stroke="#244a81ff"
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
@@ -128,7 +139,7 @@ export default function Hero() {
       >
         <motion.path
           d="M0 150 C100 100, 300 250, 400 200"
-          stroke="#7b34a2"
+          stroke="#244a81ff"
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
@@ -136,7 +147,7 @@ export default function Hero() {
         />
         <motion.path
           d="M0 400 C150 300, 250 500, 400 450"
-          stroke="#7b34a2"
+          stroke="#244a81ff"
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
@@ -144,7 +155,7 @@ export default function Hero() {
         />
         <motion.path
           d="M0 650 C100 550, 300 750, 400 700"
-          stroke="#7b34a2"
+          stroke="#244a81ff"
           strokeWidth="2"
           fill="none"
           animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
@@ -165,7 +176,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Pure Milk Custard · Thrissur
+            Premium Cafe . Feel the taste
           </motion.span>
 
           <motion.h1
@@ -176,8 +187,8 @@ export default function Hero() {
           >
             <ShinyText
               text="SWEETENING EVERY MOMENT !"
-              color="#7b34a2"
-              shineColor="#c96cffff"
+              color="#244a81ff"
+              shineColor="#E5E3DB"
               speed={3}
               delay={1}
               spread={120}
@@ -219,7 +230,7 @@ export default function Hero() {
         <div className="flex w-[200%] animate-scroll-left gap-6 pb-0">
           {images.map((item, idx) => (
             <div key={idx} className="w-[180px] h-[220px] md:w-[260px] md:h-[300px] bg-borderLight rounded-2xl flex-shrink-0 flex items-end justify-center pb-4 relative overflow-hidden group border border-borderLight/50">
-              <Image src={`/images/custard${(idx % 12) + 1}.jpeg`} alt="Custard" fill className="object-cover opacity-60 mix-blend-multiply" />
+              <Image src={`/images/${heroImages[idx % 8].file}`} alt={heroImages[idx % 8].alt} fill className="object-cover opacity-60 mix-blend-multiply" />
               <div className="absolute inset-0 z-10 hover:bg-white/10 transition-colors duration-300"></div>
             </div>
           ))}

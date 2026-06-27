@@ -7,8 +7,8 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background-color: #FDFBF7;
+  color: #1b4481ff;
   overflow-x: hidden;
 }
 
@@ -28,36 +28,36 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5eeff; /* bgLight */
+  background: #FDFBF7; /* bgLight */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7b34a2; /* primary */
+  background: #244a81ff; /* primary */
   border-radius: 8px;
-  border: 2px solid #f5eeff; /* adds a nice padding effect */
+  border: 2px solid #FDFBF7; /* adds a nice padding effect */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #622387; /* slightly darker purple for hover */
+  background: #234d88ff; /* slightly darker primary for hover */
 }
 
 /* Firefox Scrollbar Support */
 @supports (scrollbar-color: auto) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #7b34a2 #f5eeff;
+    scrollbar-color: #244a81ff #FDFBF7;
   }
 }
 
 /* Custom Selection Highlight Style */
 ::selection {
-  background-color: #7b34a2; /* primary */
-  color: #ffffff;
+  background-color: #244a81ff; /* primary */
+  color: #FDFBF7;
 }
 
 ::-moz-selection {
-  background-color: #7b34a2; /* primary */
-  color: #ffffff;
+  background-color: #244a81ff; /* primary */
+  color: #FDFBF7;
 }
 
 /* Border-Flow Rotation Animation */

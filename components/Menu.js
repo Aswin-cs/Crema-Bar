@@ -2,14 +2,14 @@
 import { motion } from "framer-motion";
 
 const menuItems = [
-  { name: "Classic Custard", desc: "Creamy vanilla with fresh fruits", price: "₹60", oldPrice: "₹80" },
-  { name: "Pista Special", desc: "Pista ice cream on rich custard", price: "₹80", oldPrice: "₹100" },
-  { name: "Fruit Custard", desc: "Loaded with seasonal fruits", price: "₹70", oldPrice: "₹90" },
-  { name: "Dry Fruit Delight", desc: "Premium nuts and dry fruits", price: "₹90", oldPrice: "₹120" },
-  { name: "Chocolate Custard", desc: "Choco drizzle with crunch", price: "₹75", oldPrice: "₹95" },
-  { name: "Royal Special", desc: "Our signature full bowl", price: "₹120", oldPrice: "₹150" },
-  { name: "Mango Custard", desc: "Fresh mango creamy base", price: "₹70", oldPrice: "₹90" },
-  { name: "Choco Nut", desc: "Chocolate with assorted nuts", price: "₹85", oldPrice: "₹110" },
+  { name: "White Chocolate Cake", desc: "Delicate and glazed to perfection", price: "₹150", oldPrice: "₹180", image: "cream_white_chocolate_cake.jpeg" },
+  { name: "Layered Tiramisu", desc: "Classic Italian dessert in a glass", price: "₹120", oldPrice: "₹150", image: "cream_tiramisu.jpeg" },
+  { name: "Cream-filled Eclairs", desc: "Delicate pastries on a platter", price: "₹100", oldPrice: "₹130", image: "cream_eclairs.jpeg" },
+  { name: "Creamy Fettuccine", desc: "Rich and creamy pasta", price: "₹250", oldPrice: "₹300", image: "cream_fettuccine.jpeg" },
+  { name: "Classic Cheesecake", desc: "Ultra-creamy New York style", price: "₹180", oldPrice: "₹220", image: "cream_cheesecake.jpeg" },
+  { name: "Cream Pot Pie", desc: "Velvety vegetable pot pie", price: "₹200", oldPrice: "₹240", image: "cream_pot_pie.jpeg" },
+  { name: "Vanilla Panna Cotta", desc: "Exquisite and topped with shavings", price: "₹140", oldPrice: "₹170", image: "cream_panna_cotta.jpeg" },
+  { name: "Creamy Carbonara", desc: "Rigatoni with egg and rich sauce", price: "₹280", oldPrice: "₹320", image: "cream_carbonara.jpeg" },
 ];
 
 export default function Menu() {
@@ -42,12 +42,12 @@ export default function Menu() {
               viewport={{ once: true, amount: 0.2 }}
               whileHover={{ 
                 y: -12,
-                boxShadow: "0 25px 50px -12px rgba(123, 52, 162, 0.25), 0 8px 20px -8px rgba(123, 52, 162, 0.15)"
+                boxShadow: "0 25px 50px -12px rgba(27, 68, 129, 0.25), 0 8px 20px -8px rgba(27, 68, 129, 0.15)"
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className="w-full aspect-[4/3] relative overflow-hidden">
-                <img src={`/images/custard${idx + 1}.jpeg`} alt={item.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={`/images/${item.image}`} alt={item.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               
               <div className="p-5 flex flex-col flex-grow">

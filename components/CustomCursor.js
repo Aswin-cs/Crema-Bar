@@ -191,9 +191,9 @@ export default function CustomCursor() {
             const g = parseInt(match[1]);
             const b = parseInt(match[2]);
             const a = match[3] !== undefined ? parseFloat(match[3]) : 1;
-            // Our purple color (#7b34a2) is rgb(123, 52, 162).
-            // Check for purple hue (high red/blue, lower green)
-            if (a > 0.1 && r > 80 && b > 120 && g < 110) {
+            // Our blue color (#1b4481) is rgb(27, 68, 129).
+            // Check for blue hue
+            if (a > 0.1 && b > 100 && r < 50 && g < 100) {
               foundPurple = true;
               break;
             }
@@ -216,11 +216,11 @@ export default function CustomCursor() {
 
   const currentColor = isOverPurple
     ? "#ffffff"
-    : (isHovering ? "#c96cff" : "#7b34a2");
+    : (isHovering ? "#244a81" : "#1b4481");
 
   const currentRingBg = isOverPurple
     ? "rgba(255, 255, 255, 0.1)"
-    : (isHovering ? "rgba(201, 108, 255, 0.08)" : "transparent");
+    : (isHovering ? "rgba(36, 74, 129, 0.08)" : "transparent");
 
   // Hold makes ring grow and glow
   const holdRingSize = ringSize + holdProgress * 28;
@@ -230,26 +230,26 @@ export default function CustomCursor() {
   const holdGlow = holdProgress > 0.1
     ? (isOverPurple
         ? `0 0 ${Math.round(holdProgress * 25)}px rgba(255, 255, 255, ${holdProgress * 0.7})`
-        : `0 0 ${Math.round(holdProgress * 25)}px rgba(123, 52, 162, ${holdProgress * 0.5})`)
+        : `0 0 ${Math.round(holdProgress * 25)}px rgba(27, 68, 129, ${holdProgress * 0.5})`)
     : "none";
 
   const currentRingBorder = isOverPurple
     ? "1.5px solid rgba(255, 255, 255, 0.8)"
     : (isHovering 
-        ? "1.5px solid rgba(201, 108, 255, 0.7)" 
-        : `${holdBorderWidth}px solid rgba(123, 52, 162, ${holdOpacity})`);
+        ? "1.5px solid rgba(36, 74, 129, 0.7)" 
+        : `${holdBorderWidth}px solid rgba(27, 68, 129, ${holdOpacity})`);
 
   const trail2Bg = isOverPurple
     ? "rgba(255, 255, 255, 0.2)"
-    : (isHovering ? "rgba(201, 108, 255, 0.15)" : "rgba(123, 52, 162, 0.15)");
+    : (isHovering ? "rgba(36, 74, 129, 0.15)" : "rgba(27, 68, 129, 0.15)");
 
   const trail1Bg = isOverPurple
     ? "rgba(255, 255, 255, 0.4)"
-    : (isHovering ? "rgba(201, 108, 255, 0.25)" : "rgba(123, 52, 162, 0.25)");
+    : (isHovering ? "rgba(36, 74, 129, 0.25)" : "rgba(27, 68, 129, 0.25)");
 
   const progressStrokeColor = isOverPurple
     ? "rgba(255, 255, 255, 0.7)"
-    : "rgba(123, 52, 162, 0.5)";
+    : "rgba(27, 68, 129, 0.5)";
 
   return (
     <>
@@ -405,14 +405,14 @@ export default function CustomCursor() {
               zIndex: 10000,
               fontSize: "11px",
               fontWeight: 600,
-              color: isOverPurple ? "#ffffff" : "#7b34a2",
-              backgroundColor: isOverPurple ? "rgba(123, 52, 162, 0.95)" : "rgba(255,255,255,0.92)",
+              color: isOverPurple ? "#ffffff" : "#1b4481",
+              backgroundColor: isOverPurple ? "rgba(27, 68, 129, 0.95)" : "rgba(255,255,255,0.92)",
               backdropFilter: "blur(6px)",
               padding: "4px 10px",
               borderRadius: "6px",
               whiteSpace: "nowrap",
-              boxShadow: isOverPurple ? "0 2px 12px rgba(0,0,0,0.2)" : "0 2px 12px rgba(123,52,162,0.15)",
-              border: isOverPurple ? "1px solid rgba(255,255,255,0.2)" : "1px solid rgba(123,52,162,0.12)",
+              boxShadow: isOverPurple ? "0 2px 12px rgba(0,0,0,0.2)" : "0 2px 12px rgba(27,68,129,0.15)",
+              border: isOverPurple ? "1px solid rgba(255,255,255,0.2)" : "1px solid rgba(27,68,129,0.12)",
             }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -441,8 +441,8 @@ export default function CustomCursor() {
               border: isOverPurple
                 ? "1.5px solid rgba(255, 255, 255, 0.6)"
                 : (isHovering 
-                    ? "1.5px solid rgba(201, 108, 255, 0.5)" 
-                    : "1.5px solid rgba(123, 52, 162, 0.4)"),
+                    ? "1.5px solid rgba(36, 74, 129, 0.5)" 
+                    : "1.5px solid rgba(27, 68, 129, 0.4)"),
             }}
             initial={{
               width: 10,

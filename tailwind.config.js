@@ -8,14 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#7b34a2",
-        bgLight: "#f5eeff",
-        textDark: "#1a1a1a",
-        borderLight: "#ede0fa",
-        borderDark: "#d4b3f0",
+        primary: "#244a81ff",
+        bgLight: "#FDFBF7",
+        textDark: "#1b4481ff",
+        borderLight: "#E5E3DB",
+        borderDark: "#234d88ff",
       },
       fontFamily: {
         raleway: ['var(--font-raleway)', 'sans-serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
       },
       animation: {
         'scroll-left': 'scroll-left 30s linear infinite',

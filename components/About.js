@@ -17,11 +17,11 @@ export default function About() {
           >
             <div className="aspect-square w-full max-w-md mx-auto md:mx-0 p-[3px] rounded-3xl relative overflow-hidden bg-borderLight/30 flex items-center justify-center">
               {/* Rotating conic-gradient border track strictly using theme colors */}
-              <div className="absolute inset-[-1000%] animate-border-flow bg-[conic-gradient(from_0deg,#7b34a2_0%,#d4b3f0_25%,#ede0fa_50%,#d4b3f0_75%,#7b34a2_100%)]" />
+              <div className="absolute inset-[-1000%] animate-border-flow bg-[conic-gradient(from_0deg,#244a81ff_0%,#234d88ff_25%,#E5E3DB_50%,#234d88ff_75%,#244a81ff_100%)]" />
               
               {/* Inner container displaying the blended child photo */}
               <div className="relative w-full h-full bg-bgLight rounded-[21px] overflow-hidden flex items-center justify-center">
-                <img src="/images/child-care-pic.jpeg" alt="Shop Photo" className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" />
+                <img src="/images/cafe_showcase.jpeg" alt="Shop Photo" className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" />
               </div>
             </div>
           </motion.div>
@@ -36,8 +36,8 @@ export default function About() {
               About Us
             </span>
             <div className="relative inline-block mb-4 max-w-full">
-              <h2 className="font-[800] text-4xl md:text-[40px] leading-tight text-primary italic relative z-10">
-                Zaithoon's Custard
+              <h2 className="font-[800] text-4xl md:text-[40px] leading-tight text-primary font-montserrat tracking-wider relative z-10">
+                CREMA BAR
               </h2>
               <svg className="absolute w-full h-4 md:h-5 -bottom-1 md:-bottom-2 left-0 text-[#ff6b6b] z-0" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <motion.path 
@@ -55,7 +55,7 @@ export default function About() {
               </svg>
             </div>
             <p className="font-[400] text-[#555555] text-lg leading-relaxed">
-              We are Thrissur's favourite custard destination. Every cup is freshly prepared with 100% pure milk, seasonal fruits, premium nuts, and a generous scoop of pista ice cream. Made with love and served with hygiene.
+              Your favorite dessert destination. Every cup is freshly prepared with 100% pure milk, vibrant seasonal fruits, and premium nuts, all crowned with a generous scoop of pista ice cream. Crafted with love, served with absolute hygiene, and dedicated to bringing you the smoothest, most indulgent flavors in town.
             </p>
             
             <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-4 w-full">

@@ -13,7 +13,7 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="font-[900] text-4xl md:text-5xl text-primary uppercase tracking-wider mb-3">THE ZAITHOON'S DIFFERENCE</h2>
+          <h2 className="font-[900] font-montserrat text-4xl md:text-5xl text-primary uppercase tracking-wider mb-3">THE CREMA BAR DIFFERENCE</h2>
           <p className="font-[500] text-lg text-[#555555] max-w-xl mx-auto italic leading-relaxed">
             "It's not just the premium nuts and fresh fruits,
             <br />

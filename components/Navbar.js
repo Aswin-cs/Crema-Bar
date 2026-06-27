@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
-import IceCreamAnimation from "./IceCreamAnimation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -75,10 +74,10 @@ export default function Navbar() {
         }`}>
           <div className="px-6 h-16 flex justify-between items-center">
             <div className="flex-shrink-0 cursor-pointer flex items-center gap-2">
-              <IceCreamAnimation className="w-8 h-8 rounded-full bg-[#E6E6FA] overflow-hidden" />
+              <img src="/images/logo.svg" alt="Logo" className="w-10 h-10 object-contain" />
               <div>
-                <span className="font-bold font-raleway font-800 text-primary text-xl italic">Zaithoon's</span>
-                <span className="font-raleway font-[400] text-primary text-xl ml-1 italic">Custard</span>
+                <span className="font-[800] font-montserrat text-primary text-xl tracking-wider">CREMA</span>
+                <span className="font-[400] font-montserrat text-primary text-xl ml-1 tracking-wider">BAR</span>
               </div>
             </div>
             
@@ -155,10 +154,10 @@ export default function Navbar() {
             {/* Mobile Header Row */}
             <div className="px-6 h-20 flex justify-between items-center border-b border-borderLight mt-4">
               <div className="flex items-center gap-2">
-                <IceCreamAnimation className="w-8 h-8 rounded-full bg-[#E6E6FA] overflow-hidden" />
+                <img src="/images/logo.svg" alt="Logo" className="w-10 h-10 object-contain" />
                 <div>
-                  <span className="font-bold font-raleway font-800 text-primary text-xl italic">Zaithoon's</span>
-                  <span className="font-raleway font-[400] text-primary text-xl ml-1 italic">Custard</span>
+                  <span className="font-[800] font-montserrat text-primary text-xl tracking-wider">CREMA</span>
+                  <span className="font-[400] font-montserrat text-primary text-xl ml-1 tracking-wider">BAR</span>
                 </div>
               </div>
               <button 

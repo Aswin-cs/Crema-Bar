@@ -8,15 +8,15 @@ const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '132, 0, 255';
 const MOBILE_BREAKPOINT = 768;
-const CARD_BG_COLOR = '#381c3cff';
+const CARD_BG_COLOR = '#1c1e3cff';
 const cardData = [
   {
     color: CARD_BG_COLOR,
     title: 'Happy Moments',
-    description: 'Enjoying our signature custard',
+    description: 'Enjoying our signature dessert',
     label: 'Memories',
     type: 'video',
-    src: '/images/happiness1.mp4'
+    src: '/videos/youngesters.mp4'
   },
   {
     color: CARD_BG_COLOR,
@@ -24,63 +24,63 @@ const cardData = [
     description: 'Straight from the counter',
     label: 'Freshness',
     type: 'video',
-    src: '/videos/video1.mp4'
+    src: '/videos/dish.mp4'
   },
   {
     color: CARD_BG_COLOR,
     title: 'The Perfect Blend',
-    description: 'Fruits, milk, and magic',
+    description: 'Rich flavors and magic',
     label: 'Delicious',
     type: 'image',
-    src: '/images/custard11.jpeg'
+    src: '/images/cream_panna_cotta.jpeg'
   },
   {
     color: CARD_BG_COLOR,
-    title: 'Creamy Delight',
-    description: 'Rich and smooth texture',
-    label: 'Quality',
+    title: 'Our Cafe',
+    description: 'Where the magic happens',
+    label: 'Atmosphere',
     type: 'video',
-    src: '/videos/video2.mp4'
+    src: '/videos/cafe_showcase.mp4'
   },
   {
     color: CARD_BG_COLOR,
     title: 'Family Time',
     description: 'Sweet moments together',
     label: 'Joy',
-    type: 'video',
-    src: '/videos/video3.mp4'
+    type: 'image',
+    src: '/images/family1.jpeg'
   },
   {
     color: CARD_BG_COLOR,
-    title: 'Signature Cup',
+    title: 'Signature Dish',
     description: 'Our bestseller',
     label: 'Favorite',
     type: 'image',
-    src: '/images/custard12.jpeg'
+    src: '/images/cream_carbonara.jpeg'
   },
   {
     color: CARD_BG_COLOR,
-    title: 'Preparation',
-    description: 'Made with love and hygiene',
-    label: 'Kitchen',
+    title: 'Pure Delight',
+    description: 'Loved by all ages',
+    label: 'Smiles',
     type: 'video',
-    src: '/videos/video4.mp4'
+    src: '/videos/child.mp4'
   },
   {
     color: CARD_BG_COLOR,
-    title: 'Our Milestones',
-    description: 'Loved by thousands across Kerala',
-    label: 'Achievements',
-    type: 'video',
-    src: '/videos/video5.mp4'
+    title: 'Happy Faces',
+    description: 'The joy of a perfect dessert',
+    label: 'Kids',
+    type: 'image',
+    src: '/images/child.jpeg'
   },
   {
     color: CARD_BG_COLOR,
-    title: 'Happy Smiles',
-    description: 'Our favorite part of the day',
+    title: 'Our Space',
+    description: 'A cozy spot for everyone',
     label: 'Community',
-    type: 'video',
-    src: '/videos/video6.mp4'
+    type: 'image',
+    src: '/images/cafe_showcase.jpeg'
   }
 ];
 

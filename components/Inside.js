@@ -53,7 +53,7 @@ export default function Inside() {
                   <motion.div
                     className="w-full h-full"
                     style={{
-                      background: "conic-gradient(from 0deg, transparent 30%, #7b34a2 50%, transparent 70%, transparent 90%, #d4b3f0 100%)",
+                      background: "conic-gradient(from 0deg, transparent 30%, #244a81ff 50%, transparent 70%, transparent 90%, #234d88ff 100%)",
                       transformOrigin: "center center"
                     }}
                     animate={{ rotate: 360 }}
@@ -64,8 +64,8 @@ export default function Inside() {
                 {/* Inner content container */}
                 <div className="relative w-full h-full bg-bgLight rounded-[14px] overflow-hidden flex items-center justify-center">
                   <img 
-                    src="/images/custard9.jpeg" 
-                    alt="Custard Cup Photo" 
+                    src="/images/sample_dessert.jpeg" 
+                    alt="Dish Photo" 
                     className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply transition-transform duration-700 hover:scale-105" 
                   />
                 </div>

@@ -4,21 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // All critical images used across the site that should be preloaded
 const PRELOAD_IMAGES = [
-  "/images/icon.svg",
-  "/images/child-care-pic.jpeg",
-  "/images/custard.png",
-  "/images/custard1.jpeg",
-  "/images/custard2.jpeg",
-  "/images/custard3.jpeg",
-  "/images/custard4.jpeg",
-  "/images/custard5.jpeg",
-  "/images/custard6.jpeg",
-  "/images/custard7.jpeg",
-  "/images/custard8.jpeg",
-  "/images/custard9.jpeg",
-  "/images/custard10.jpeg",
-  "/images/custard11.jpeg",
-  "/images/custard12.jpeg",
+  "/images/logo.svg",
+  "/images/cafe_showcase.jpeg",
+  "/images/sample_dish.jpeg",
+  "/images/sample_dessert.jpeg",
+  "/images/cream_white_chocolate_cake.jpeg",
+  "/images/cream_tiramisu.jpeg",
+  "/images/cream_eclairs.jpeg",
+  "/images/cream_fettuccine.jpeg",
+  "/images/cream_cheesecake.jpeg",
+  "/images/cream_pot_pie.jpeg",
+  "/images/cream_panna_cotta.jpeg",
+  "/images/cream_carbonara.jpeg",
 ];
 
 // Maximum time to wait for assets before proceeding anyway (ms)
@@ -116,7 +113,7 @@ export default function SplashScreen() {
         {phase < 2 && (
           <motion.div
             key="violet-screen"
-            className="absolute inset-0 bg-gradient-to-br from-[#9b4add] via-[#7b34a2] to-[#461763] flex flex-col items-center justify-center z-40 pointer-events-auto"
+            className="absolute inset-0 bg-gradient-to-br from-[#234d88ff] via-[#244a81ff] to-[#1b4481ff] flex flex-col items-center justify-center z-40 pointer-events-auto"
             initial={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
@@ -127,10 +124,10 @@ export default function SplashScreen() {
               transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
               className="flex flex-col items-center gap-6"
             >
-              <img src="/images/icon.svg" alt="Zaithoon's Custard Logo" className="w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-white shadow-2xl" />
-              <div className="flex items-center gap-4">
-                <span className="font-[800] text-white text-3xl md:text-5xl italic">Zaithoon's</span>
-                <span className="font-[400] text-white text-3xl md:text-5xl italic">Custard</span>
+              <img src="/images/logo.svg" alt="Zaithoon's Custard Logo" className="w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-2xl" />
+              <div className="flex items-center gap-4 mt-4">
+                <span className="font-[800] text-white text-3xl md:text-5xl font-montserrat tracking-wider">CREMA</span>
+                <span className="font-[400] text-white text-3xl md:text-5xl font-montserrat tracking-wider">BAR</span>
               </div>
 
               {/* Loading indicator — visible while assets load */}
