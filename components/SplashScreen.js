@@ -36,6 +36,38 @@ export default function SplashScreen() {
   const [phase, setPhase] = useState(0);
   const [visible, setVisible] = useState(true);
   const [assetsReady, setAssetsReady] = useState(false);
+  const [cssLoaded, setCssLoaded] = useState(false);
+  const [logoLoaded, setLogoLoaded] = useState(false);
+
+  // Monitor if CSS is loaded by checking computed styling of a temporary test element
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkCss = () => {
+      const testEl = document.createElement("div");
+      testEl.className = "text-primary";
+      document.body.appendChild(testEl);
+      const computedColor = window.getComputedStyle(testEl).color;
+      document.body.removeChild(testEl);
+
+      // check if color matches rgb(36, 74, 129)
+      if (computedColor === "rgb(36, 74, 129)" || computedColor === "rgba(36, 74, 129, 1)") {
+        setCssLoaded(true);
+        return true;
+      }
+      return false;
+    };
+
+    if (checkCss()) return;
+
+    const interval = setInterval(() => {
+      if (checkCss()) {
+        clearInterval(interval);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Preload all assets
   useEffect(() => {
@@ -46,6 +78,13 @@ export default function SplashScreen() {
 
     // Start preloading all images in parallel
     const preloadAll = Promise.all(PRELOAD_IMAGES.map(preloadImage));
+
+    // Monitor logo loading status specifically
+    preloadImage("/images/logo.svg").then((res) => {
+      if (!cancelled && res.status === "loaded") {
+        setLogoLoaded(true);
+      }
+    });
 
     // Also wait for fonts
     const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
@@ -113,7 +152,11 @@ export default function SplashScreen() {
         {phase < 2 && (
           <motion.div
             key="violet-screen"
-            className="absolute inset-0 bg-gradient-to-br from-[#234d88ff] via-[#244a81ff] to-[#1b4481ff] flex flex-col items-center justify-center z-40 pointer-events-auto"
+            className={`absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-auto transition-colors duration-300 ${
+              cssLoaded
+                ? "bg-gradient-to-br from-[#234d88ff] via-[#244a81ff] to-[#1b4481ff]"
+                : "bg-transparent"
+            }`}
             initial={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
@@ -124,10 +167,18 @@ export default function SplashScreen() {
               transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
               className="flex flex-col items-center gap-6"
             >
-              <img src="/images/logo.svg" alt="Zaithoon's Custard Logo" className="w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-2xl" />
-              <div className="flex items-center gap-4 mt-4">
-                <span className="font-[800] text-white text-3xl md:text-5xl font-montserrat tracking-wider">CREMA</span>
-                <span className="font-[400] text-white text-3xl md:text-5xl font-montserrat tracking-wider">BAR</span>
+              {logoLoaded && (
+                <motion.img 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  src="/images/logo.svg" 
+                  alt="Zaithoon's Custard Logo" 
+                  className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl mb-2" 
+                />
+              )}
+              <div className="flex items-center gap-4">
+                <span className={`font-[800] text-4xl md:text-6xl font-montserrat tracking-wider transition-colors duration-300 ${cssLoaded ? 'text-white' : 'text-transparent'}`}>CREMA</span>
+                <span className={`font-[400] text-4xl md:text-6xl font-montserrat tracking-wider transition-colors duration-300 ${cssLoaded ? 'text-white' : 'text-transparent'}`}>BAR</span>
               </div>
 
               {/* Loading indicator — visible while assets load */}
@@ -142,7 +193,7 @@ export default function SplashScreen() {
                     {[0, 1, 2].map((i) => (
                       <motion.div
                         key={i}
-                        className="w-2 h-2 rounded-full bg-white/70"
+                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${cssLoaded ? 'bg-white/70' : 'bg-transparent'}`}
                         animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
                         transition={{ duration: 1, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
                       />
