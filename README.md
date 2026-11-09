@@ -1,6 +1,6 @@
 # CREMA BAR
 
-![CREMA BAR Logo](public/images/logo.svg)
+<img src="public/images/logo.svg" alt="CREMA BAR Logo" width="200" />
 
 CREMA BAR is a premium, state-of-the-art Next.js showcase web application designed for a demo cafe/dessert shop. This project serves as a high-fidelity interactive prototype for showcasing web design concepts and product experiences.
 
